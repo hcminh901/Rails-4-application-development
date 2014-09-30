@@ -26,13 +26,21 @@
         <td><%= event.organizer_id %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', event, method: :delete,
+          data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<%= link_to 'New Event', new_event_path, class: "btn btn-small btn-default" %>
 
-<%= link_to 'New Event', new_event_path %>
-<%= event.all_tags.map{|t| link_to t, tag_path(t)}.join "," %>
+<div class="col-lg-4">
+  <h3>Search Tags</h3>
+  <div>
+    <% tag_cloud Event.tag_counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
+</div>
+<br>

@@ -35,7 +35,45 @@
   <%= @event.organizer_id %>
 </p>
 
-<%= @event.all_tags %>
+<p>
+  <strong>Tags:</strong>
+  <% @event.all_tags.each do |tag| %>
+    <%= link_to tag, tag_path(tag) %>
+  <% end %>
+</p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<% if user_signed_in? && @event.organizer_id == current_user.id %>
+  <label>Join Requests</label><br>
+  <% if @pending_requests.present? %>
+    <% @pending_requests.each do |p| %>
+      <%= image_tag avatar_url p.user %>
+      <%= p.user.email %>
+      <%= link_to "Accept", event_accept_request_path(event_id: @event.id,
+        attendance_id: p.id), class: "btn btn-success btn-small" %>
+      <%= link_to "Reject", event_reject_request_path(event_id: @event.id,
+        attendance_id: p.id), class: "btn btn-danger btn-small" %><br>
+    <% end %>
+  <% else %>
+    <p>No Pending Requests for this event</p>
+  <% end %>
+<% end %>
+<br>
+
+<label>Attendees</label>
+<% @attendees.each do |a|%>
+  <%= image_tag avatar_url(a.user) %>
+  <%= a.user.email%>
+<%end%>
+<br>
+
+<label>Organizer:</label>
+<%= image_tag avatar_url @event_owner %>
+<%= @event_owner.email %>
+<br>
+
+<%= link_to "Join", event_join_path(event_id: @event.id),
+  class: "btn btn-success btn-small" %>
+<%= link_to 'All Events', events_path, class: "btn btn-info btn-small" %>
+<%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary btn-small" %>
+<%= link_to "Delete", event_path(@event), method: :delete,
+  data: {confirm: "are you sure?"}, class: "btn btn-danger btn-small" %>

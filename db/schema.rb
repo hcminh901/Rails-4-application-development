@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930071024) do
+ActiveRecord::Schema.define(version: 20141002081403) do
 
   create_table "attendances", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20140930071024) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "state"
+  end
+
+  create_table "boards", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "cuisines", force: true do |t|
@@ -64,6 +72,15 @@ ActiveRecord::Schema.define(version: 20140930071024) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "pins", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.integer  "board_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
 
   create_table "recipes", force: true do |t|
     t.string   "title"

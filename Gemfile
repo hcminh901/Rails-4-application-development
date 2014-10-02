@@ -29,6 +29,9 @@ gem "devise", github: "plataformatec/devise"
 gem "anjlab-bootstrap-rails", require: "bootstrap-rails"
 gem "friendly_id"
 gem "workflow", github: "geekq/workflow"
+gem "carrierwave"
+gem "rmagick"
+gem "kaminari"
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: "events#index"
   resources :events
-
+  resources :pins
+  resources :boards
   devise_for :users
   resources :recipes
   get "tags/:tag", to: "events#index", as: :tag

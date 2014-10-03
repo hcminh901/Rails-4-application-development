@@ -32,6 +32,7 @@ gem "workflow", github: "geekq/workflow"
 gem "carrierwave"
 gem "rmagick"
 gem "kaminari"
+gem "rails_config"
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 

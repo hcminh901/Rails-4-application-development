@@ -16,3 +16,4 @@
 //= require_tree .
 //= require twitter/bootstrap
 //= require jquery.infinitescroll
+//= require jquery.wookmark

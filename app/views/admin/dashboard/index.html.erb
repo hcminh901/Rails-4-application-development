@@ -1,0 +1,28 @@
+<h3>Clicks and Impressions Per Article</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th>Clicks</th>
+      <th>Impressions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title, article %></td>
+        <td><%= article.track_clicks_per_article %></td>
+        <td><%= article.impressionist_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Clicks Per Day</h3>
+<div id="click_chart" style="height: 250px;" data-click="<%= @click_data.to_json %>"></div>
+
+<h3>Impressions Per Day</h3>
+<div id="impressions_chart" style="height: 250px;" data-impression="<%= @impression_data.to_json %>"></div>
+
+<h3>Demographics</h3>
+<div id="demographic" style="height: 250px;" data-demo="<%= @demographics.to_json %>"></div>

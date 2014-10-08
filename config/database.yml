@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: curry-nation_production
+  database: curry-nation_development
   username: curry-nation
-  password: <%= ENV['CURRY-NATION_DATABASE_PASSWORD'] %>
+  password: 123456

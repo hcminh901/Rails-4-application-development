@@ -21,3 +21,5 @@ $ ->
   $("#posts").bind "DOMNodeInserted", ->
     wookmark()
   wookmark()
+
+  $("a[rel*=facebox]").facebox()

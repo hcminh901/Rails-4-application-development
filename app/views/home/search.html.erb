@@ -1,0 +1,19 @@
+<%= flash[:notice] %>
+<% @search.each do |s| %>
+  <% if s.kind_of? Board %>
+    <li>
+      <p>
+        <%= s.title %><br>
+        <%= s.description %><br>
+        <%= s.user.email %>
+      </p>
+    </li>
+  <% elsif s.class.name == "Pin" %>
+    <li>
+      <%= image_tag s.image.url %>
+      <p>
+        <%= s.name %>
+      </p>
+    </li>
+  <% end %>
+<% end %>

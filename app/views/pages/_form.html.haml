@@ -1,0 +1,11 @@
+.field
+  = f.label "Parent"
+  %br/
+  = f.collection_select(:parent_page_id, Page.all, :id, :title, class: "form-control")
+  = f.label :body
+  %br/
+  = f.cktext_area :body, rows: 20, ckeditor: {uiColor: "#AADC6E", toolbar: "mini"}
+  %br/
+  .actions
+    = f.submit class: "btn btn-default"
+    = link_to "Cancel", pages_path, class: "btn btn-danger"

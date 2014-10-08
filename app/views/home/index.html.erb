@@ -1,0 +1,29 @@
+<div class="row">
+  <% @plans.each do |plan| %>
+    <div class="col-sm-4">
+      <div class="list-group">
+        <a href="#" class="list-group-item active">
+          <%= plan.name %> - <%= number_to_currency plan.price %> / Month
+        </a>
+        <a href="#" class="list-group-item">
+          <%= plan.restaurants %> Restaurant
+        </a>
+        <a href="#" class="list-group-item">
+          <%= plan.tables %> tables / Restaurant
+        </a>
+        <a href="#" class="list-group-item">
+          <%= plan.menu_items %> Menu Items / Restaurant
+        </a>
+        <a href="#" class="list-group-item">
+          <%= plan.storage %> GB storage
+        </a>
+        <%= link_to new_user_registration_path(plan_id: plan.id),
+          class: "list-group-item" do %>
+          <button class="btn tbn-success">
+            Sign Up
+          </button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

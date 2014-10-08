@@ -17,3 +17,8 @@
 //= require twitter/bootstrap
 //= require jquery.infinitescroll
 //= require jquery.wookmark
+//= require jquery.facebox
+//= require jquery_nested_form
+//= require ckeditor/init
+//= require raphael
+//= require morris

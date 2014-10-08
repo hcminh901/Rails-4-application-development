@@ -1,0 +1,4 @@
+- @pages.each do |page|
+%tr = page.title
+%td = page.body.html_safe
+%td = page.parent_page.title if page.parent_page

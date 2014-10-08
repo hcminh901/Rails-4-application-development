@@ -6,6 +6,13 @@
           <td>
             <%= link_to(image_tag(pin.image.thumb.url), pin) %>
             <p>
+              <a href="#info" rel="facebox">
+                <i class="icon-share-sign"></i>
+                Pin this
+                <div id="info" style="display:none;">
+                  <%= render partial: "pin_post", locals: {pin: pin} %>
+                </div>
+              </a>
               <strong>Board:</strong><%= pin.board.title %><br/>
               <%= pin.board.title %>
             </p>

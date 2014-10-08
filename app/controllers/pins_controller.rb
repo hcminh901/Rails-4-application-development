@@ -49,6 +49,18 @@ class PinsController < ApplicationController
     end
   end
 
+  def pin_post
+    @current_pin = Pin.friendly.find params[:id]
+    @pin = @current_pin.repin_post params[:board_id]
+    respond_to do |format|
+      if @pin.save
+        format.js {render layout: false}
+      else
+        format.js
+      end
+    end
+  end
+
   private
     def set_pin
       @pin = Pin.friendly.find(params[:id])

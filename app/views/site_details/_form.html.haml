@@ -1,0 +1,40 @@
+= form_for @site_detail do |f|
+  - if @site_detail.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@site_detail.errors.count, "error")} prohibited this site_detail from being saved:"
+      %ul
+        - @site_detail.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :organization
+    = f.text_field :organization
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :facebook
+    = f.text_field :facebook
+  .field
+    = f.label :twitter
+    = f.text_field :twitter
+  .field
+    = f.label :google_plus
+    = f.text_field :google_plus
+  .field
+    = f.label :skype
+    = f.text_field :skype
+  .field
+    = f.label :linkedin
+    = f.text_field :linkedin
+  .field
+    = f.label :google_analytics
+    = f.text_field :google_analytics
+  .field
+    = f.label :telephone
+    = f.text_field :telephone
+  .actions
+    = f.submit 'Save'

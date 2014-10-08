@@ -11,4 +11,8 @@ module ApplicationHelper
     gravatar_id = Digest::MD5::hexdigest(user.email).downcase
     "http://gravatar.com/avatar/#{gravatar_id}.png"
   end
+
+  def plan_name plan_id
+    plan_name = Plan.where(id: plan_id).pluck(:name).first
+  end
 end
